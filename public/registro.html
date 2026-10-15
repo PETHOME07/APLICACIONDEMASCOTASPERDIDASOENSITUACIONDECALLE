@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Registrar mascota - App de Mascotas</title>
+<link rel="stylesheet" href="styleRegistro.css">
+</head>
+<body>
+<button class="btn-regresar" onclick="window.location.href='index.html'">↩️</button>
+<div class="contenedor">
+    <h1>Registrar mascota</h1>
+    <form id="formulario-registro" enctype="multipart/form-data">
+        <h2>Propietario</h2>
+        <div class="campo">
+            <label for="propietarioNombre">Nombre</label>
+            <input id="propietarioNombre" name="propietarioNombre" type="text" required>
+        </div>
+        <div class="campo">
+            <label for="propietarioTelefono">Teléfono</label>
+            <input id="propietarioTelefono" name="propietarioTelefono" type="tel" required>
+        </div>
+        <h2>Mascota</h2>
+        <div class="campo">
+            <label for="mascotaNombre">Nombre</label>
+            <input id="mascotaNombre" name="mascotaNombre" type="text" required>
+        </div>
+        <div class="campo">
+            <label for="mascotaDescripcion">Descripción</label>
+            <textarea id="mascotaDescripcion" name="mascotaDescripcion" required></textarea>
+        </div>
+        <div class="campo">
+            <label for="razaCode">Raza</label>
+            <select id="razaCode" name="razaCode" required>
+                <option value="">Cargando razas...</option>
+            </select>
+        </div>
+        <div class="campo">
+            <label for="imagen">Imagen de la mascota</label>
+            <input id="imagen" name="imagen" type="file" accept="image/*" required>
+        </div>
+        <h2>Publicación</h2>
+        <div class="campo">
+            <label for="publicidadDescripcion">Descripción del aviso</label>
+            <textarea id="publicidadDescripcion" name="publicidadDescripcion" required></textarea>
+        </div>
+        <div class="campo">
+            <label for="recompensa">Recompensa</label>
+            <input id="recompensa" name="recompensa" type="number" min="0" step="0.01">
+        </div>
+        <div class="campo">
+            <label for="fecha">Fecha</label>
+            <input id="fecha" name="fecha" type="date" required>
+        </div>
+        
+        <div class="botones-contenedor">
+            <button type="button" class="btn-registrar" onclick="registrarPublicidad()">REGISTRAR</button>
+        </div>
+        
+        <p id="mensaje-registro" class="mensaje" aria-live="polite"></p>
+    </form>
+</div>
+<script src="app.js"></script>
+<script>
+    // Aquí conectaremos con base de datos / WhatsApp
+    if (typeof guardarEnBaseDatos === 'function') {
+        guardarEnBaseDatos(formData);
+    }
+</script>
+</body>
+</html>
